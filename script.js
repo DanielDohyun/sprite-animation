@@ -7,6 +7,7 @@ const playerImg = new Image();
 playerImg.src = 'shadow_dog.png';
 const spriteWidth = 575;
 const spriteHeight = 523;
+let playerState = 'run'
 // playerImg.src = 'stick.png';
 // const spriteWidth = 23;
 // const spriteHeight = 340;
@@ -73,9 +74,9 @@ animationStates.forEach((state, index) => {
 
 function animate() {
     ctx.clearRect(0, 0, CAN_WIDTH, CAN_HEIGHT);
-    let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations['idle'].loc.length;
+    let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations[playerState].loc.length;
     let frameX = spriteWidth * position;
-    let frameY = spriteAnimations['idle'].loc[position].y;
+    let frameY = spriteAnimations[playerState].loc[position].y;
 
      ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
 
