@@ -1,9 +1,9 @@
-let playerState = 'run'
+let playerState = 'run';
 
 const dropdown = document.getElementById('animations');
 dropdown.addEventListener('change', function (e) {
     playerState = e.target.value;
-})
+});
 
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
@@ -81,11 +81,10 @@ function animate() {
     let frameX = spriteWidth * position;
     let frameY = spriteAnimations[playerState].loc[position].y;
 
-     ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+    ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
 
     gameFrame++;
     requestAnimationFrame(animate);
-
 };
 
 animate();
