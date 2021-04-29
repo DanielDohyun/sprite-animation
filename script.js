@@ -1,3 +1,10 @@
+let playerState = 'run'
+
+const dropdown = document.getElementById('animations');
+dropdown.addEventListener('change', function (e) {
+    playerState = e.target.value;
+})
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const CAN_WIDTH = canvas.width = 600;
@@ -7,10 +14,6 @@ const playerImg = new Image();
 playerImg.src = 'shadow_dog.png';
 const spriteWidth = 575;
 const spriteHeight = 523;
-let playerState = 'run'
-// playerImg.src = 'stick.png';
-// const spriteWidth = 23;
-// const spriteHeight = 340;
 
 let gameFrame = 0;
 const staggerFrames = 5;
@@ -56,7 +59,7 @@ const animationStates = [
         name: 'getHit',
         frames: 4,
     }
-]
+];
 
 animationStates.forEach((state, index) => {
     let frames = {
@@ -80,15 +83,9 @@ function animate() {
 
      ctx.drawImage(playerImg, frameX, frameY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
 
-   
-     //slowing down the animation
-    // if (gameFrame % staggerFrames == 0) {
-    //     if (frameX < 5) frameX++;
-    //     else frameX = 0;
-    // }
-
     gameFrame++;
     requestAnimationFrame(animate);
 
 };
+
 animate();
